@@ -13,7 +13,7 @@ shinyServer(function(input, output, session) {
         } 
         
     print(    p + geom_tile() + labs(x = "Day of Year", y = "Year") +
-                  scale_fill_gradient(low="yellow",  high="red", guide="colorbar") )
+                  scale_fill_gradient(low="yellow",  high="red", guide="colorbar", name = "Flowrate") )
     } )
     
 ### quantile.plot
@@ -25,7 +25,7 @@ shinyServer(function(input, output, session) {
            p <- ggplot(data = dat, aes(x = wy.day, y = wy.year, fill = val) )
            
            print(p + geom_tile() + labs(x = "Day of Year", y = "Year") +
-                     scale_fill_brewer(type = "seq") 
+                     scale_fill_brewer(type = "seq",  name = "Flowrate Bins") 
                  )       
     } ) 
 
@@ -35,8 +35,8 @@ output$plot3 <- renderPlot(
 
 if(input$lowF){dat$val <- dat$flow <= brks} else{
     dat$val <- dat$flow > brks}
-    p <- ggplot(data = dat, aes(x = wy.day, y = wy.year, fill = val) ) + labs(title = paste("Threshold = ", brks),
-                                                                              x = "Day of Year", y = "Year" )
+    p <- ggplot(data = dat, aes(x = wy.day, y = wy.year, fill = val) ) + 
+    labs(title = paste("Threshold = ", brks), x = "Day of Year", y = "Year" ) + scale_fill_discrete(name = "> than threshold")
     
     print(p + geom_tile() 
     )       

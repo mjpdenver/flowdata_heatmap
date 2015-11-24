@@ -9,9 +9,9 @@ output: html_document
 
 This is a quick example of creating heat maps to illustrate daily flow time series using R.  These plots were created using daily flow data provided by Richard Koehler - NOAA an inspired by his presentation at the recent AWRA National Conference in Denver.  This was just a quick example, and obviously there is a lot more adjusting that can be done with these plots.
 
-More information about R can be found at <https://www.r-project.org/.
+More information about R can be found at <https://www.r-project.org/>.
 
-This is an example of a shiny app and the code using to create this can be found on github at .
+This is an example of a shiny app and the code using to create this can be found on github at <https://github.com/mjpdenver/flowdata_heatmap>.
 
 For those new to R, a much simpler example of creating an heatmap using R can be found below.
 
@@ -22,7 +22,7 @@ dat <- read.csv("lees ferry_test data.csv")
 
 p <- ggplot(data = dat, aes(x = wy.day, y = wy.year, fill = flow))
 p + geom_tile() + labs(x = "Day of Year", y = "Year") +
-                  scale_fill_gradient(low="yellow",  high="red", guide="colorbar") 
+                  scale_fill_gradient(low="yellow",  high="red", guide="colorbar")
 
 
 ```
